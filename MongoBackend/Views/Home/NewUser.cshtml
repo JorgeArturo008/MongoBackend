@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<center>
+
+    <h3>New user</h3>
+        <hr />
+        <div class="row">
+    <form action="/Home/SaveUser" method="post">
+        <div class="col-md-3 form-horizontal">
+            <br />
+            <input type="text" class="form-control" id="txtname" name="txtname" placeholder="Nombre" required>
+            <br />
+            <input type="text" class="form-control" id="txtemail"  name="txtemail" placeholder="Apellidos" required>
+        </div>
+        <div class="col-md-3 form-horizontal">
+            <br />
+            <input type="text" class="form-control" id="txtphone" name="txtphone" placeholder="Telefono" required>
+            <br />
+            <input type="text" class="form-control" id="txtadress" name="txtadress" placeholder="Adress" required>
+            <br />
+            <button class="btn btn-primary" type="submit">
+                Create
+            </button>
+        </div>
+    </form>
+</div>
+
+    </center>

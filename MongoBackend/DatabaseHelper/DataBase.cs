@@ -53,5 +53,47 @@ namespace MongoBackend.DatabaseHelper
 
             user.InsertOne(doc);
         }
+
+
+        public void DeleteUser(String txtname)
+        {
+            MongoClient mongoClient = new MongoClient("mongodb+srv://Root:multicaribe1@cluster0.owjr3hy.mongodb.net/test");
+
+            IMongoDatabase db = mongoClient.GetDatabase("MongoBackend");
+
+            var user = db.GetCollection<BsonDocument>("Users");
+
+            var doc = new BsonDocument
+        {
+            {"name", txtname }
+        };
+
+            user.DeleteOne(doc);
+        }
+
+        public void UpdateUser(Users users)
+        {
+            MongoClient mongoClient = new MongoClient("mongodb+srv://Root:multicaribe1@cluster0.owjr3hy.mongodb.net/test");
+
+            IMongoDatabase db = mongoClient.GetDatabase("MongoBackend");
+
+            var user = db.GetCollection<BsonDocument>("Users");
+
+            var doc = new BsonDocument
+             {
+
+            {"name", users.name },
+            {"email", users.email },
+            {"phone", users.phone },
+            {"adress", users.adress },
+            {"dateIn", users.dateIn}
+
+
+             };
+
+            /* user.UpdateOne();*/
+
+        }
+
     }
 }
