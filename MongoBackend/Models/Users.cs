@@ -1,15 +1,18 @@
-﻿namespace MongoBackend.Models
+﻿
+using MongoDB.Bson;
+
+namespace MongoBackend.Models
 {
     public class Users
     {
 
-        public int? _id { get; set; }
+        public ObjectId? _id { get; set; }
 
         public string name { get; set; }
 
         public string email { get; set; }
 
-        public int? phone { get; set; }
+        public Int32? phone { get; set; }
 
         public string adress { get; set; }
 

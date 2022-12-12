@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h3>Lista Usuarios</h3>
+
+@foreach ( var @Item in ViewBag.userList)
+        {
+            <p>@Item.name</p>
+            <p>@Item.email</p>
+            <p>@Item.phone</p>
+
+        };

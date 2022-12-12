@@ -16,8 +16,43 @@ namespace MongoBackend.Controllers
         public IActionResult Index()
         {
 
+
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult SaveUser(string txtname,
+                                    string txtemail,
+                                    Int32 txtphone,
+                                    string txtadress
+                                    )
+        {
             DatabaseHelper.DataBase dbHelper = new DatabaseHelper.DataBase();
-            ViewBag.bag
+
+
+
+            dbHelper.InsertUser(new Users()
+            {
+
+                name = txtname,
+                email = txtemail,
+                phone = txtphone,
+                adress = txtadress,
+                dateIn = DateTime.Now
+            });
+
+
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult ListUsuarios()
+        {
+
+            DatabaseHelper.DataBase dbHelper = new DatabaseHelper.DataBase();
+            ViewBag.userList = dbHelper.GetUsers();
+
             return View();
         }
 
